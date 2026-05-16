@@ -1,0 +1,214 @@
+{
+  "$schema": "./schemas/chatgpt-app-submission.schema.json",
+  "schema_version": "0.1.0-draft",
+  "file_purpose": "Internal submission checklist and metadata pack for preparing a ChatGPT Apps SDK app review submission.",
+  "submission_status": "draft",
+  "last_updated": "2026-05-17",
+  "app": {
+    "name": "Lab Intelligence App",
+    "working_title": "Lab Intelligence App",
+    "short_description": "A learning, field-assistant, calculator, and database viewer app for laboratory and technical workflows.",
+    "long_description": "Lab Intelligence App is designed to help users learn procedures, search structured technical knowledge, follow field workflows, use calculators, and review training content from approved knowledge sources. The app is intended to provide practical guidance, structured checklists, and task-focused assistance rather than broad unsupported advice.",
+    "category": "Education / Productivity / Field Assistant",
+    "audience": [
+      "laboratory technicians",
+      "field technicians",
+      "learners",
+      "trainers",
+      "technical supervisors"
+    ],
+    "primary_platforms": [
+      "ChatGPT Apps SDK",
+      "Android-first web/PWA",
+      "Web"
+    ],
+    "supported_languages": [
+      "en"
+    ],
+    "age_rating_intent": "General audience; not targeted at children under 13."
+  },
+  "developer": {
+    "publisher_name": "TODO: verified OpenAI Platform publisher name",
+    "organization_name": "TODO: organization or individual publisher name",
+    "support_email": "TODO: public support email only",
+    "support_url": "TODO: public support page URL",
+    "privacy_policy_url": "TODO: public privacy policy URL",
+    "terms_url": "TODO: public terms of use URL",
+    "website_url": "TODO: public app or developer website URL"
+  },
+  "distribution": {
+    "openai_platform_owner_or_api_apps_write_required": true,
+    "intended_distribution": "Submit through OpenAI Platform Dashboard when app is complete and review-ready.",
+    "review_notes": "This JSON is a preparation file, not a guarantee of approval and not a replacement for the OpenAI dashboard submission form."
+  },
+  "mcp_server": {
+    "server_url": "TODO: production MCP server URL",
+    "health_check_url": "TODO: production health check URL",
+    "deployment_environment": "TODO: production / staging",
+    "transport": "TODO: streamable_http or supported transport",
+    "authentication_required": false,
+    "auth_type": "none_or_TODO",
+    "oauth_redirect_urls": [],
+    "rate_limits": {
+      "public_documented": false,
+      "notes": "TODO: document request limits and graceful error handling."
+    }
+  },
+  "chatgpt_app_metadata": {
+    "display_name": "Lab Intelligence App",
+    "description_for_users": "Learn procedures, search technical knowledge, follow field workflows, and use calculators from approved app content.",
+    "description_for_model": "Use this app when the user asks for supported laboratory learning workflows, approved knowledge-base lookup, structured checklists, training steps, or app-provided calculators. Do not use it for unrelated general advice or unsupported standards content.",
+    "icon_url": "TODO: app icon URL",
+    "screenshots": [
+      {
+        "name": "home_screen",
+        "url": "TODO: screenshot URL",
+        "description": "Main app entry screen showing learning, field assistant, calculator, and database sections."
+      },
+      {
+        "name": "knowledge_search",
+        "url": "TODO: screenshot URL",
+        "description": "Search and result screen for approved app knowledge."
+      },
+      {
+        "name": "guided_workflow",
+        "url": "TODO: screenshot URL",
+        "description": "Step-by-step task workflow with checklist-style guidance."
+      }
+    ]
+  },
+  "tools": [
+    {
+      "name": "search_knowledge_base",
+      "status": "planned",
+      "description": "Searches approved app knowledge sources for task-relevant procedures, definitions, references, or training material.",
+      "input_minimization": "Accepts a task-specific query only. Does not request full chat history.",
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      },
+      "side_effects": "None. Returns relevant app knowledge only."
+    },
+    {
+      "name": "get_training_module",
+      "status": "planned",
+      "description": "Retrieves a structured training module for a supported topic from approved app content.",
+      "input_minimization": "Accepts module/topic identifier and optional skill level.",
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      },
+      "side_effects": "None."
+    },
+    {
+      "name": "run_calculator",
+      "status": "planned",
+      "description": "Runs a supported app calculator using user-provided numeric inputs and returns calculation steps and results.",
+      "input_minimization": "Accepts only the numeric inputs required for the selected calculator.",
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      },
+      "side_effects": "None."
+    },
+    {
+      "name": "create_checklist",
+      "status": "planned",
+      "description": "Creates a task checklist inside the app response for supported workflows.",
+      "input_minimization": "Accepts task name and selected workflow options only.",
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      },
+      "side_effects": "No external write action unless future saved-checklist storage is added."
+    }
+  ],
+  "privacy_and_data": {
+    "data_collection_principles": [
+      "Collect only the minimum data required for the selected app function.",
+      "Do not request raw full chat transcripts.",
+      "Do not request passwords, API keys, MFA codes, payment-card data, or government identifiers.",
+      "Do not request precise GPS coordinates or full addresses unless a future feature strictly requires it and the privacy policy clearly covers it."
+    ],
+    "personal_data_collected": "TODO: document exact categories before submission.",
+    "data_retention": "TODO: document retention timeline before submission.",
+    "data_recipients": "TODO: document any third-party processors before submission.",
+    "user_controls": [
+      "TODO: explain data deletion/contact process.",
+      "TODO: explain account or session controls if authentication is added."
+    ],
+    "restricted_data_policy": "The app must not collect PCI data, PHI, government identifiers, access credentials, authentication secrets, or unnecessary sensitive data."
+  },
+  "safety_and_policy": {
+    "general_audience": true,
+    "not_targeted_to_children_under_13": true,
+    "no_ads": true,
+    "no_unapproved_commerce": true,
+    "no_prohibited_goods_or_services": true,
+    "no_unofficial_third_party_connector_behavior": true,
+    "no_hidden_side_effects": true,
+    "no_model_selection_manipulation": true,
+    "human_review_needed_before_submission": true,
+    "known_risks": [
+      "Technical procedures must avoid unsafe overconfidence and should include verification warnings where relevant.",
+      "Standards or proprietary materials must only be used when licensed or otherwise authorized.",
+      "Calculator outputs must be tested against known examples before review submission."
+    ],
+    "mitigations": [
+      "Use approved knowledge sources only.",
+      "Show clear fallback/error messages when content is missing or uncertain.",
+      "Add test cases for each tool and workflow.",
+      "Keep all tool descriptions accurate and non-promotional."
+    ]
+  },
+  "quality_and_reliability": {
+    "must_not_submit_until": [
+      "Production MCP server is deployed and stable.",
+      "All tools have accurate names, descriptions, schemas, and annotations.",
+      "Privacy policy and support contact are published.",
+      "Screenshots accurately match the working app.",
+      "Authentication flow, if any, is tested with demo credentials.",
+      "Error states, empty states, and slow network states are tested.",
+      "Mobile/PWA layout is tested on Android-sized screens."
+    ],
+    "test_plan": [
+      "Knowledge-base search returns relevant approved content only.",
+      "Training modules open without broken links or missing sections.",
+      "Calculators validate required numeric inputs and reject invalid input safely.",
+      "Checklist workflows are readable on mobile screens.",
+      "No tool returns internal IDs, debug traces, or unnecessary telemetry in user-facing responses.",
+      "App handles server errors with clear fallback messages."
+    ]
+  },
+  "review_assets": {
+    "demo_video_url": "TODO: optional review/demo video URL",
+    "test_account": {
+      "required": false,
+      "username": "TODO: only if authentication is enabled",
+      "password": "TODO: do not commit real passwords to a public repo; provide credentials securely through the official review flow"
+    },
+    "sample_prompts": [
+      "Show me a training module for a supported lab procedure.",
+      "Search the knowledge base for a supported test method topic.",
+      "Create a step-by-step checklist for a supported field task.",
+      "Run a supported calculator with these inputs."
+    ]
+  },
+  "submission_checklist": {
+    "metadata_complete": false,
+    "tools_complete": false,
+    "privacy_policy_published": false,
+    "terms_published": false,
+    "support_contact_published": false,
+    "screenshots_ready": false,
+    "mcp_server_deployed": false,
+    "security_review_complete": false,
+    "mobile_review_complete": false,
+    "policy_review_complete": false,
+    "ready_for_openai_dashboard_submission": false
+  }
+}
